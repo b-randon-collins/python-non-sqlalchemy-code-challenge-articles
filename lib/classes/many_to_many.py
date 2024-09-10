@@ -1,4 +1,6 @@
 class Article:
+    all = []
+
     def __init__(self, author, magazine, title: str):
         if not isinstance(author, Author) or not isinstance(magazine, Magazine):
             raise ValueError("author must be an instance of Author and magazine must be an instance of Magazine")
@@ -8,6 +10,8 @@ class Article:
         self._author = author
         self._magazine = magazine
         self._title = title
+
+        Article.all.append(self)
 
     @property
     def title(self):
