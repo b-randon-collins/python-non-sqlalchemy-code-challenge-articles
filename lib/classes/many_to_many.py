@@ -67,7 +67,6 @@ class Author:
     def topic_areas(self):
         return list(set(article.magazine.category for article in self._articles)) if self._articles else None
 
-
 class Magazine:
     def __init__(self, name: str, category: str):
         if not isinstance(name, str) or not (2 <= len(name) <= 16):
@@ -91,7 +90,13 @@ class Magazine:
 
     @property
     def category(self):
-        return self._categorygit 
+        return self._category
+
+    @category.setter
+    def category(self, value: str):
+        if not isinstance(value, str) or not (2 <= len(value) <= 16):
+            raise ValueError("Name must be between 2 and 16 characters")
+        self._category = value
 
     def add_article(self, article):
         if not isinstance(article, Article):
