@@ -12,7 +12,7 @@ class Article:
         self._title = title
 
         Article.all.append(self)
-
+        magazine.add_article(self)
 
     @property
     def title(self):
@@ -113,6 +113,10 @@ class Magazine:
         return [article.title for article in self._articles] if self._articles else []
 
     def contributors(self):
+        return list(set(article.author for article in self._articles))
+
+    
+    def contributors_authors(self):
         author_counts = {}
         for article in self._articles:
             author = article.author

@@ -52,12 +52,12 @@ class TestMagazine:
         # assert magazine_2.name == "AD"
 
         # uncomment the next two lines if using Exceptions
-        # with pytest.raises(Exception):
-        #     magazine_1.name = "New Yorker Plus X"
+        with pytest.raises(Exception):
+            magazine_1.name = "New Yorker Plus X"
 
         # uncomment the next two lines if using Exceptions
-        # with pytest.raises(Exception):
-        #     magazine_2.name = "A"
+        with pytest.raises(Exception):
+            magazine_2.name = "A"
 
     def test_has_category(self):
         """Magazine is initialized with a category"""
