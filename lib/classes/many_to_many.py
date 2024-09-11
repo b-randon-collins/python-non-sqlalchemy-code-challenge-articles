@@ -83,9 +83,15 @@ class Magazine:
     def name(self):
         return self._name
 
+    @name.setter
+    def name(self, value: str):
+        if not isinstance(value, str) or not (2 <= len(value) <= 16):
+            raise ValueError("Name must be between 2 and 16 characters")
+        self._name = value
+
     @property
     def category(self):
-        return self._category
+        return self._categorygit 
 
     def add_article(self, article):
         if not isinstance(article, Article):
