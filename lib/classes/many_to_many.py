@@ -13,6 +13,7 @@ class Article:
 
         Article.all.append(self)
 
+
     @property
     def title(self):
         return self._title
@@ -102,9 +103,10 @@ class Magazine:
         if not isinstance(article, Article):
             raise ValueError("article must be an instance of Article")
         self._articles.append(article)
+        
 
     def articles(self):
-        return self._articles
+        return [article for article in Article.all if article.magazine == self]
     
 
     def article_titles(self):
