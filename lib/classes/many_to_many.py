@@ -54,6 +54,8 @@ class Author:
         
         article = Article(self, magazine, title)
         self._articles.append(article)
+        magazine.add_article(article)
+
         return article
 
     def articles(self):
